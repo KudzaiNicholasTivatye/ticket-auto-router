@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-
+import { createClient } from '@supabase/supabase-js';
 import './App.css';
+
+// ✅ Initialize Supabase client
+const supabase = createClient(
+  "https://xzlqidvpcbefamrxiffw.supabase.co",   // replace with your Supabase project URL
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bHFpZHZwY2JlZmFtcnhpZmZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYyOTgxMzQsImV4cCI6MjA3MTg3NDEzNH0.lC170sAgHBPF4UiSuCDClCv1u5taNA041xLK5jIsAsA"                          // replace with your anon public key
+);
 
 const TicketRouter = () => {
   const [formData, setFormData] = useState({
@@ -11,34 +17,31 @@ const TicketRouter = () => {
   const [loading, setLoading] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
+
+
+
   const departmentConfig = {
     'Billing': {
-      
       class: 'result-billing',
       title: 'Billing Department'
     },
     'Tech Support': {
-     
       class: 'result-tech-support',
       title: 'Technical Support'
     },
     'Sales': {
-     
       class: 'result-sales',
       title: 'Sales Department'
     },
     'Shipping': {
-      
       class: 'result-shipping',
       title: 'Shipping & Logistics'
     },
     'Triage': {
-     
       class: 'result-triage',
       title: 'Triage (Manual Review)'
     },
     'Error': {
-     
       class: 'result-error',
       title: 'Processing Error'
     }
@@ -54,6 +57,8 @@ const TicketRouter = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+  
     
     if (!formData.subject.trim() || !formData.body.trim()) {
       alert('Please fill in both subject and description fields.');
@@ -80,11 +85,29 @@ const TicketRouter = () => {
       }
 
       const data = await response.json();
-      setResult({
+      const ticketResult = {
         department: data.department,
         confidence: data.confidence
-      });
+      };
+
+      setResult(ticketResult);
       setShowResult(true);
+
+      // ✅ Save ticket to Supabase
+      const { error } = await supabase
+        .from("tickets") // make sure you created a "tickets" table in Supabase
+        .insert([
+          {
+            subject: formData.subject.trim(),
+            body: formData.body.trim(),
+            department: ticketResult.department,
+            confidence: ticketResult.confidence
+          }
+        ]);
+
+      if (error) {
+        console.error("Supabase insert error:", error.message);
+      }
 
     } catch (error) {
       console.error('Error:', error);
