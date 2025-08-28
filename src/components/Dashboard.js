@@ -18,12 +18,12 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
 
   const departmentConfig = {
-    'All': { icon: '📊', color: '#6366f1', count: 0 },
-    'Billing': { icon: '💳', color: '#059669', count: 0 },
-    'Tech Support': { icon: '🔧', color: '#1d4ed8', count: 0 },
-    'Sales': { icon: '💼', color: '#d97706', count: 0 },
-    'Shipping': { icon: '📦', color: '#7c3aed', count: 0 },
-    'Triage': { icon: '🔄', color: '#ea580c', count: 0 }
+    'All': {  color: '#6366f1', count: 0 },
+    'Billing': { color: '#059669', count: 0 },
+    'Tech Support': {  color: '#1d4ed8', count: 0 },
+    'Sales': { color: '#d97706', count: 0 },
+    'Shipping': { color: '#7c3aed', count: 0 },
+    'Triage': { color: '#ea580c', count: 0 }
   };
 
   const statusConfig = {

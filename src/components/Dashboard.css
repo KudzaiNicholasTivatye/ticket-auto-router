@@ -269,6 +269,15 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 600px;
   padding: var(--spacing);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+   max-height: 80vh;         /* Limit height to 80% of viewport */
+  overflow-y: auto;         /* Enable vertical scroll if needed */
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .modal-header {
