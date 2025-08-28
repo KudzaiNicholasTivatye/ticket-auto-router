@@ -120,6 +120,14 @@ const TicketRouter = () => {
       setLoading(false);
     }
   };
+   if (loading) {
+    return (
+     <div className="loading-container">
+      <div className="spinner"></div>
+      <p className="loading-text">LOADING</p>
+    </div>
+    );
+  }
 
   const resetForm = () => {
     setFormData({ subject: '', body: '' });

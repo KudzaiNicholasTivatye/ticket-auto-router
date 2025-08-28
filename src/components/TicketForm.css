@@ -427,3 +427,49 @@ textarea.form-control {
     display: none;
   }
 }
+
+ /* Loading Spinner */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: black;
+}
+
+.spinner {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  border-top: 8px solid #0ff; /* neon blue */
+  border-right: 8px solid #0ff;
+  animation: spin 1.5s linear infinite;
+  box-shadow: 0 0 20px #0ff;
+  position: relative;
+}
+
+.spinner::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  border: 6px dotted #0ff;
+  animation: spin 2s linear infinite reverse;
+}
+
+.loading-text {
+  margin-top: 20px;
+  color: #0ff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #0ff;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

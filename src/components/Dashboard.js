@@ -148,9 +148,10 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="dashboard-container">
-        <div className="loading-spinner">Loading tickets...</div>
-      </div>
+     <div className="loading-container">
+      <div className="spinner"></div>
+      <p className="loading-text">LOADING</p>
+    </div>
     );
   }
 
@@ -159,7 +160,7 @@ const Dashboard = () => {
       {/* Header */}
       <div className="dashboard-header">
         <div className="header-content">
-          <h1>🎯 Ticket Management Dashboard</h1>
+          <h1>Ticket Management Dashboard</h1>
           <p>Monitor and manage support tickets across all departments</p>
         </div>
         <div className="header-stats">

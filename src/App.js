@@ -3,14 +3,18 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TicketForm from "./components/TicketForm";
 import Dashboard from "./components/Dashboard";
+import "./App.css"; // add styles here
 
 function App() {
   return (
     <Router>
       <div>
-        <nav style={{ padding: "10px", background: "#eee" }}>
-          <Link to="/" style={{ marginRight: "10px" }}>Submit Ticket</Link>
-          <Link to="/dashboard">Dashboard</Link>
+        <nav className="navbar">
+          <div className="navbar-logo">🎫 TicketingApp</div>
+          <div className="navbar-links">
+            <Link to="/">Submit Ticket</Link>
+            <Link to="/dashboard">Dashboard</Link>
+          </div>
         </nav>
 
         <Routes>
@@ -23,3 +27,4 @@ function App() {
 }
 
 export default App;
+
