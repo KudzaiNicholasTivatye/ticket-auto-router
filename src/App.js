@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div>
         <nav className="navbar">
-          <div className="navbar-logo">🎫 TicketingApp</div>
+          <div className="navbar-logo">Ticket Auto-Router</div>
           <div className="navbar-links">
             <Link to="/">Submit Ticket</Link>
             <Link to="/dashboard">Dashboard</Link>
