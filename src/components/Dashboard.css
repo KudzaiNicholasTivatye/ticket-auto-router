@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Poppins:wght@400;700&display=swap');
 :root {
   --primary-color: #6366f1;
-  --bg-color: #8dafd2;
-  --card-bg: #cbb6da;
+  --bg-color: #e6ebef;
+  --card-bg: #922bdb;
   --text-color: #0b0f18;
-  --sidebar-bg: #696d75;
+  --sidebar-bg: #1d5fe2;
   --modal-bg: rgba(0, 0, 0, 0.6);
   --modal-content-bg: #ffffff;
   --border-radius: 8px;
